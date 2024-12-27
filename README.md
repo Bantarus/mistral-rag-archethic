@@ -17,7 +17,8 @@ Current Features:
 
 Limitations:
 - Currently implements a simple Question/Answer system without conversation memory
-- No support for follow-up questions or context from previous interactions
+- No support yet for follow-up questions or context from previous interactions
+  > Note: Conversation memory could be implemented by modifying the prompt template to include previous interactions, while respecting the model's context length limits. This is a planned future enhancement.
 
 ## Setup
 

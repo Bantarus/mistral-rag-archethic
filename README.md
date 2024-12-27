@@ -1,6 +1,6 @@
 # Archethic Documentation RAG System
 
-This project implements a Retrieval-Augmented Generation (RAG) system for the Archethic documentation using LangChain and FAISS.
+This project implements a Retrieval-Augmented Generation (RAG) system for the Archethic documentation using Mistralai, LangChain and FAISS.
 
 ## Features
 

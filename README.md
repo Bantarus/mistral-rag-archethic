@@ -37,6 +37,8 @@ pip install -r requirements.txt
    - The MISTRAL_MODEL_PATH should point to your downloaded model directory
    - The free tier of Mistral API has rate limits, which is why we implement lazy loading and rate limiting for embeddings
 
+   ⚠️ **Warning**: The system currently sets `KMP_DUPLICATE_LIB_OK=TRUE` to handle multiple OpenMP instances. For optimal performance and consistency, it's recommended to run only one OpenMP  instance. This is a temporary workaround that may impact performance.
+
 3. Download a compatible model:
    Available models from [mistral-inference](https://github.com/mistralai/mistral-inference):
    - Mistral 7B Instruct v0.3

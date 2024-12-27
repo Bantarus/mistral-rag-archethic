@@ -1,0 +1,5 @@
+/.venv/
+/docs/*
+.env.local
+mistral-inference.md
+/faiss_index_*

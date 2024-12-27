@@ -1,0 +1,5 @@
+langchain>=0.1.0
+langchain-community>=0.0.10
+langchain-mistralai>=0.0.3
+faiss-cpu[no-omp]>=1.7.4
+python-dotenv>=1.0.0 

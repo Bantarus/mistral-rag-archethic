@@ -3,3 +3,7 @@
 .env.local
 mistral-inference.md
 /faiss_index_*
+# RAG System files
+faiss_index_docs*
+*_registry.json
+/docs-test

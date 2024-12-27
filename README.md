@@ -4,6 +4,7 @@ This project implements a Retrieval-Augmented Generation (RAG) system for the Ar
 
 ## Features
 
+Current Features:
 - Recursive document loading from directory
 - Efficient text chunking with overlap
 - FAISS vector store for fast similarity search
@@ -13,6 +14,10 @@ This project implements a Retrieval-Augmented Generation (RAG) system for the Ar
 - Rate-limited batch processing
 - UTF-8 encoding support
 - Clear and focused responses based on context
+
+Limitations:
+- Currently implements a simple Question/Answer system without conversation memory
+- No support for follow-up questions or context from previous interactions
 
 ## Setup
 

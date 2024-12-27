@@ -23,18 +23,55 @@ pip install -r requirements.txt
 
 2. Set up your environment:
    - Create either `.env.local` (recommended) or `.env` file
-   - Add your Mistral API key and model path to the file:
+   - Add the following environment variables:
      ```
+     # Required for embeddings via Mistral API
      MISTRAL_API_KEY=your_api_key_here
+     
+     # Required for local model inference
      MISTRAL_MODEL_PATH=path/to/your/mistral/model
      ```
-   Note: `.env.local` takes precedence over `.env` if both exist
+   Note: 
+   - `.env.local` takes precedence over `.env` if both exist
+   - The MISTRAL_API_KEY is used only for generating embeddings via the Mistral API service
+   - The MISTRAL_MODEL_PATH should point to your downloaded model directory
+   - The free tier of Mistral API has rate limits, which is why we implement lazy loading and rate limiting for embeddings
 
-3. Initialize the document registry:
+3. Download a compatible model:
+   Available models from [mistral-inference](https://github.com/mistralai/mistral-inference):
+   - Mistral 7B Instruct v0.3
+   - Mixtral 8x7B Instruct v0.1
+   - Mixtral 8x22B Instruct v0.3
+   - Mistral 7B Base v0.3
+   - Mixtral 8x22B v0.3
+   - Codestral 22B v0.1
+   - Mathstral 7B v0.1
+   - Codestral-Mamba 7B v0.1
+   - Mistral Nemo Base/Instruct
+   - Mistral Large 2
+
+4. Initialize the document registry:
 ```bash
 python create_registry.py
 ```
 This creates a registry of all markdown files in the docs directory, tracking their content hashes for incremental updates.
+
+## Rate Limiting and Lazy Loading
+
+The system implements two key features to work within Mistral API's free tier limitations:
+
+1. **Rate Limiting**: 
+   - Limits embedding requests to respect the API's rate limit
+   - Configurable batch size (default: 1) and delay between batches (default: 2 seconds, could work with 1 sec, not tested)
+   - Prevents API throttling and ensures reliable processing
+
+2. **Lazy Loading**:
+   - Documents are loaded and processed only when needed
+   - Reduces memory usage for large documentation sets
+   - Enables processing of documents in smaller batches
+   - Tracks processed documents to avoid unnecessary API calls
+
+These features ensure reliable operation within the free tier limits while maintaining system functionality.
 
 ## Usage
 
